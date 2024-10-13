@@ -108,13 +108,15 @@ body {
     background: linear-gradient(90deg, #b4c0c9 0%, #dde2ee 50%, #b4c0c9 100%);
     font-family: var(--typeface);
     color: var(--tx-color-1);
-    padding: var(--space-100);
-    
     overflow-x: hidden;
+    position: relative;
 }
 
 main {
-    position: relative;
+    width: 85%;
+    max-width: 1000px;
+    display: block;
+    margin: 0 auto;
 }
 
 svg {
@@ -171,8 +173,8 @@ svg {
 /*—————————— Global Styles ——————————*/
 [_1] {
     position: absolute;
-    top: 60%;
-    left: 25%;
+    top: 45%;
+    left: 20%;
     width: 4em;
     height: 4em;
     background: linear-gradient(to bottom, #0bf, #06d);
@@ -184,8 +186,8 @@ svg {
 
 [_2] {
     position: absolute;
-    top: 2%;
-    right: 4%;
+    top: 4%;
+    right: 8%;
     width: 8em;
     height: 8em;
     background: linear-gradient(to bottom, #4cf, #09f);
@@ -197,8 +199,8 @@ svg {
 
 [_3] {    
     position: absolute;
-    top: 20%;
-    left: -12%;
+    top: 15%;
+    left: -10%;
     width: 25em;
     height: 25em;
     background: linear-gradient(to bottom, #dbe1e790 0%, #bec8d2 50%);
@@ -211,8 +213,8 @@ svg {
 
 [_4] {
     position: absolute;
-    top: 50%;
-    right: -5%;
+    top: 40%;
+    right: -10%;
     width: 25em;
     height: 25em;
     background-color: transparent;
@@ -226,15 +228,16 @@ svg {
 .hero {
     width: 100%;
     height: 100vh;
+    max-height: 800px;
 }
 
 .hero__header {
-    width: 80%;
-    max-width: 1200px;
+    width: 100%;
+    max-height: 130px;
     
     nav {
         padding: var(--space-150);
-        margin: var(--space-100);
+        margin-block: var(--space-200);
         gap: var(--space-100);
         
         backdrop-filter: blur(12px);
@@ -257,68 +260,95 @@ svg {
         transform: translate(-50%, -40%) scale(1);
         transition: transform var(--trans-3);
         &:hover {
-            transform: translate(-50%, -10%) scale(1.6);
+            transform: translate(-50%, -10%) scale(1.4);
         }
     }
-}
-
-.profile {
-    position: relative;
-    color: transparent;
-}
-
-
-
-.nav__item--a {
-    width: 40%;
-    order: 1;
-}
-.nav__item--b {
-    order: 2;
-}
-.nav__item--c {
-    width: 40%;
-    order: 3;
+    .link__a {
+        order: 2;
+    }
+    .link__b {
+        order: 2;
+    }
+    .link__c {
+        position: relative;
+        order: 2;
+        strong {
+            opacity: 0;
+        }
+    }
+    .link__d {
+        order: 2;
+    }
+    .link__e {
+        order: 2;
+    }
+    .logo__svg {
+        visibility: hidden;
+        display: none;
+    }
 }
 
 .hero__content {
     height: 100%;
     text-align: center;
     gap: var(--space-100);
+    margin-bottom: 2em;
     
     h1 {
         font-size: 2.5em;
-        font-weight: lighter;
     }
     h2 {
         font-size: 4em;
         font-weight: bold;
-        margin-bottom: var(--space-050);
-        strong {
-            background: linear-gradient(to bottom, #1bf, #06d);
-            background-clip: text;
-            color: transparent;
+        margin-bottom: var(--space-100);
+    }
+    strong {
+        background: linear-gradient(to bottom, #1bf, #06d);
+        background-clip: text;
+        color: transparent;
+    }
+    div {
+        gap: var(--space-200);
+    }
+    [data-btn-info] {
+        color: var(--tx-color-2);
+        font-size: var(--size-4);
+        padding: var(--space-075) var(--space-150);
+        background-color: #fff4;
+        border: var(--solid-1) #fff;
+        border-radius: var(--radius-1);
+        transition: transform var(--trans-2);
+        &:hover {
+            color: var(--tx-color-1);
+            transform: scale(1.1);
         }
     }
+    [data-btn-download] {
+        color: #fff;
+        font-size: var(--size-4);
+        padding: var(--space-075) var(--space-150);
+        background: linear-gradient(to bottom, #1bf, #06d);
+        border: none;
+        border-radius: var(--radius-1);
+        transition: transform var(--trans-2);
+        &:hover {
+            font-weight: bold;
+            transform: scale(1.1);
+        }
+    }
+
 }
 
 .hero__footer {
     margin-bottom: var(--space-200);
     h3 {
-        font-size: 2em;
-        font-weight: lighter;
+        font-size: 1.8em;
         text-align: center;
         color: var(--tx-color-2);
     }
     nav {
         padding: var(--space-200);
         gap: var(--space-200);
-    }
-}
-
-.social {
-    svg:hover {
-        color: var(--tx-color-1);
     }
 }
 
@@ -342,36 +372,63 @@ svg {
     }
 }
 
+.gb-presentation {
+    height: 50vh;
+    h2 {
+        font-size: 2.5em;
+    }
+}
+
+.presentation__nav a {
+    svg:hover {
+        color: var(--tx-color-1);
+    }
+}
+
+
 
 
 /*—————————— Responsive Web Design ——————————*/
 
-@media (max-width: 1200px) {
-    body {
-        padding: var(--space-025);
-    }
-    .hero__header {
-        min-width: 900px;
-    }
-    .hero__profile {
-        --width-profile: 110px;
-    }
-}
 @media (max-width: 900px) {
-    body {
-        padding: 0;
+    main {
+        width: 90%;
+        display: block;
+        margin: 0 auto;
     }
-    .hero__header {
-        min-width: 600px;
-    }.hero__profile {
-        --width-profile: 100px;
+    .hero__header a{
+        font-size: var(--size-4);
     }
 }
 @media (max-width: 600px) {
-    .hero__header {
-        max-width: 100%;
+    main {
+        width: 100%;
+        margin: 0;
+        padding: var(--space-050);
+    }
+    .hero__header{
+        nav {
+            margin-block: var(--space-150);
+        }
+        a {
+            font-size: var(--size-3);
+        }
     }
 }
 @media (max-width: 400px) {
-    
+    main {
+        width: 100%;
+        margin: 0;
+        padding: var(--space-050);
+
+        .hero__header {
+            img {
+                visibility: hidden;
+            }
+            .logo {
+                visibility: visible;
+                display: block;
+            }
+        }
+    }
 }
