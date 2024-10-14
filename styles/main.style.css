@@ -115,6 +115,15 @@ main {
     width: 80%;
     max-width: 1000px;
     margin: 0 auto;
+
+    @media (max-width: 900px) {
+        width: 90%;
+    }
+    @media (max-width: 600px) {
+        width: 100%;
+        margin: 0;
+        padding: var(--space-050);
+    }
 }
 
 svg {
@@ -122,6 +131,12 @@ svg {
     height: var(--space-200);
     color: var(--tx-color-2);
     fill: var(--tx-color-2);
+}
+
+header > h2 {
+    font-size: 3em;
+    font-weight: bold;
+    color: var(--tx-color-3);
 }
 
 /*—————————— Reusable Class Styles ——————————*/
@@ -205,6 +220,16 @@ svg {
     z-index: -1;
 }
 
+.gb-projects,
+.gb-experience,
+.gb-knowledge,
+.gb-contact {
+    header {
+        text-align: center;
+        padding-block: 4em;
+    }
+}
+
 /*—————————— Hero (1) ——————————*/
 
 .gb-hero {
@@ -213,137 +238,136 @@ svg {
     max-height: 800px;
     position: relative;
 }
+    .hero__header {
+        width: 100%;
+        max-height: 130px;
+        
+        nav {
+            padding: var(--space-150);
+            margin-block: var(--space-200);
+            gap: var(--space-100);
+            
+            backdrop-filter: blur(1em);
+            background-color: #fff2;
+            box-shadow: 0px 5px 10px 0px #0241, 0px 0px 10px 0px #fff8 inset;
+            border: var(--solid-1) #fff;
+            border-radius: var(--radius-3);
+        }
+        a {
+            font-size: var(--size-5);
+            color: var(--tx-color-2);
+            &:hover {
+                color: var(--tx-color-1);
+            }
+        }
+        img {
+            position: absolute;
+            border-radius: 100%;
+            border: var(--solid-1) #fff;
+            left: 50%;
+            transform: translate(-50%, -40%);
+        }
+        a[href="#projects"] {
+            order: 2;
+        }
+        a[href="#experience"] {
+            order: 2;
+        }
+        a.profile_photo {
+            position: relative;
+            order: 2;
+            strong {
+                opacity: 0;
+            }
+        }
+        a[href="#knowledge"] {
+            order: 2;
+        }
+        a[href="#contact"] {
+            order: 2;
+        }
+    }
 
-.hero__header {
-    width: 100%;
-    max-height: 130px;
-    
-    nav {
-        padding: var(--space-150);
-        margin-block: var(--space-200);
+    .hero__content {
+        height: 100%;
+        text-align: center;
         gap: var(--space-100);
         
-        backdrop-filter: blur(1em);
-        background-color: #fff2;
-        box-shadow: 0px 5px 10px 0px #0241, 0px 0px 10px 0px #fff8 inset;
-        border: var(--solid-1) #fff;
-        border-radius: var(--radius-3);
-    }
-    a {
-        font-size: var(--size-5);
-        color: var(--tx-color-2);
-        &:hover {
-            color: var(--tx-color-1);
+        h1 {
+            margin-top: 2em;
+            font-size: 2em;
         }
-    }
-    img {
-        position: absolute;
-        border-radius: 100%;
-        border: var(--solid-1) #fff;
-        left: 50%;
-        transform: translate(-50%, -40%);
-    }
-    a[href="#projects"] {
-        order: 2;
-    }
-    a[href="#experience"] {
-        order: 2;
-    }
-    a.profile_photo {
-        position: relative;
-        order: 2;
-        strong {
-            opacity: 0;
-        }
-    }
-    a[href="#knowledge"] {
-        order: 2;
-    }
-    a[href="#contact"] {
-        order: 2;
-    }
-}
-
-.hero__content {
-    height: 100%;
-    text-align: center;
-    gap: var(--space-100);
-    
-    h1 {
-        margin-top: 2em;
-        font-size: 2em;
-    }
-    h2 {
-        font-size: 4em;
-        font-weight: bold;
-    }
-    strong {
-        background: linear-gradient(to bottom, #1bf, #06d);
-        background-clip: text;
-        color: transparent;
-    }
-    div {
-        gap: var(--space-200);
-    }
-    ul {
-        margin-block: 1em 4em;
-        gap: var(--space-100);
-        
-        li {
-            list-style: none;
-        } 
-        svg {
-            color: var(--tx-color-3);
-            border-radius: 4px;
-        }
-    } 
-    [data-btn-info] {
-        color: var(--tx-color-2);
-        font-size: var(--size-4);
-        padding: var(--space-075) var(--space-150);
-        background-color: #d2d9e4;
-        box-shadow: 0px 10px 10px 0px #0241, 0px 0px 20px 0px #fff8 inset;
-        border: var(--solid-1) #fff;
-        border-radius: var(--radius-1);
-        transition-property: transform, box-shadow;
-        transition: var(--trans-2);
-        &:hover {
-            color: var(--tx-color-1);
-            box-shadow: none;
-            transform: scale(1.1);
-            background: #e9eef9;
-        }
-    }
-    [data-btn-download] {
-        color: #fff;
-        font-size: var(--size-4);
-        padding: var(--space-075) var(--space-150);
-        background: linear-gradient(to bottom, #1bf, #06d);
-        box-shadow: 0px 10px 10px 0px #0241, 0px 2px 4px 0px #fff4 inset;
-        border: none;
-        border-radius: var(--radius-1);
-        transition-property: transform, box-shadow;
-        transition: var(--trans-2);
-        &:hover {
+        h2 {
+            font-size: 4em;
             font-weight: bold;
-            box-shadow: none;
-            transform: scale(1.1);
+        }
+        strong {
+            background: linear-gradient(to bottom, #1bf, #06d);
+            background-clip: text;
+            color: transparent;
+        }
+        div {
+            gap: var(--space-200);
+        }
+        ul {
+            margin-block: 1em 4em;
+            gap: var(--space-100);
+            
+            li {
+                list-style: none;
+            } 
+            svg {
+                color: var(--tx-color-3);
+                border-radius: 4px;
+            }
+        } 
+        [data-btn-info] {
+            color: var(--tx-color-2);
+            font-size: var(--size-4);
+            padding: var(--space-075) var(--space-150);
+            background-color: #d2d9e4;
+            box-shadow: 0px 10px 10px 0px #0241, 0px 0px 20px 0px #fff8 inset;
+            border: var(--solid-1) #fff;
+            border-radius: var(--radius-1);
+            transition-property: transform, box-shadow;
+            transition: var(--trans-2);
+            &:hover {
+                color: var(--tx-color-1);
+                box-shadow: none;
+                transform: scale(1.1);
+                background: #e9eef9;
+            }
+        }
+        [data-btn-download] {
+            color: #fff;
+            font-size: var(--size-4);
+            padding: var(--space-075) var(--space-150);
+            background: linear-gradient(to bottom, #1bf, #06d);
+            box-shadow: 0px 10px 10px 0px #0241, 0px 2px 4px 0px #fff4 inset;
+            border: none;
+            border-radius: var(--radius-1);
+            transition-property: transform, box-shadow;
+            transition: var(--trans-2);
+            &:hover {
+                font-weight: bold;
+                box-shadow: none;
+                transform: scale(1.1);
+            }
         }
     }
 
-}
-
-.hero__footer {
-    margin-bottom: var(--space-200);
-}
-
-.scroll-animation {
-    animation: scroll-down 2s infinite;
-    svg {
-        width: 3em;
-        height: 3em;
+    .hero__footer {
+        margin-bottom: var(--space-200);
     }
-}
+
+    .scroll-animation {
+        animation: scroll-down 2s infinite;
+        svg {
+            width: 3em;
+            height: 3em;
+        }
+    }
+
 @keyframes scroll-down {
     0%, 100% {
         transform: translateY(0rem);
@@ -356,6 +380,12 @@ svg {
     66% {
         transform: translateY(-1rem);
         opacity: 0;
+    }
+}
+
+@media (max-width: 900px) {
+    .hero__header a{
+        font-size: var(--size-4);
     }
 }
 
@@ -382,7 +412,6 @@ svg {
     width: 100%;
     height: 240px;
     gap: var(--space-100);
-    
 
     h2 {
         width: 100%;
@@ -390,16 +419,6 @@ svg {
     }
     p {
         line-height: 1.4;
-    }
-    h3 {
-        font-size: var(--size-5);
-    }
-    nav {
-        gap: var(--space-200);
-        margin-right: var(--space-100);
-    }
-    svg:hover {
-        color: var(--tx-color-1);
     }
 }
 
@@ -426,38 +445,6 @@ svg {
 }
 
 /*—————————— Projects (4) ——————————*/
-
-
-
-.gb-projects {
-    h2 {
-        font-size: 3em;
-        font-weight: bold;
-    }
-}
-
-.projects__header {
-    padding-block: 3em;
-    menu {
-        display: flex;
-        gap: var(--space-100);
-    }
-    a {
-        cursor: pointer;
-        padding: var(--space-050);
-        background-color: #d2d9e4;
-        box-shadow: 0px 10px 10px 0px #0241, 0px 0px 20px 0px #fff8 inset;
-        border: var(--solid-1) #fff;
-        border-radius: var(--radius-1);
-        transition-property: transform, box-shadow;
-        transition: var(--trans-2);
-        &:hover {
-            box-shadow: none;
-            transform: scale(1.1);
-            background: #e9eef9;
-        }
-    }
-}
 
 .projects__content {
     width: 100%;
@@ -490,28 +477,38 @@ svg {
     }
 }
 
-.gb-experience {
-    h2 {
-        font-size: 2em;
-    }
-}
-
 .experience__header {
     margin-block: var(--space-300);
+}
+
+
+
+
+
+
+/*—————————— Experience (5) ——————————*/
+
+/*—————————— Knowledge (6) ——————————*/
+
+/*—————————— Contact (7) ——————————*/
+
+.contact__social {
+
+    h3 {
+        font-size: var(--size-5);
+    }
+    nav {
+        gap: var(--space-200);
+        margin-right: var(--space-100);
+    }
+    svg:hover {
+        color: var(--tx-color-1);
+    }
 }
 
 /*—————————— Responsive Web Design ——————————*/
 
 @media (max-width: 900px) {
-    main {
-        width: 90%;
-        display: block;
-        margin: 0 auto;
-    }
-    .hero__header a{
-        font-size: var(--size-4);
-    }
-
     .projects__content {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
@@ -536,10 +533,6 @@ svg {
 }
 @media (max-width: 400px) {
     main {
-        width: 100%;
-        margin: 0;
-        padding: var(--space-050);
-
         .hero__header {
             img {
                 visibility: hidden;
